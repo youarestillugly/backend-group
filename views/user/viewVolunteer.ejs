@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Volunteers - <%= event.title %></title>
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/footer.css">
+  <link rel="stylesheet" href="/css/volunteer.css">
+
+</head>
+<body>
+
+  <%- include('../partials/header') %>
+
+  <section class="event-details">
+    <h2>Volunteers for: <%= event.title %></h2>
+
+    <% if (volunteers.length === 0) { %>
+      <p>No volunteers have registered for this event yet.</p>
+    <% } else { %>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>StudentNo</th>
+            <th>Phone</th>
+            <th>Course</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% volunteers.forEach(vol => { %>
+            <tr>
+              <td data-label="Name"><%= vol.fullName %></td>
+              <td data-label="Email"><%= vol.email %></td>
+              
+              <td data-label="StudentNo"><%= vol.studentNumber %></td>
+              <td data-label="Phone"><%= vol.phone %></td>
+              <td data-label="Course"><%= vol.course %></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    <% } %>
+
+    <a href="/events/<%= event.id %>" class="btn back-btn">← Back to Event Details</a>
+  </section>
+
+  <%- include('../partials/footer') %>
+
+</body>
+</html>

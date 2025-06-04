@@ -1,0 +1,124 @@
+/* Container */
+.event-details {
+  max-width: 900px;
+  margin: 40px auto 60px;
+  padding: 0 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.event-details h2 {
+  text-align: center;
+  color: #114B8C;
+  margin-bottom: 25px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+
+thead {
+  background-color: #114B8C;
+  color: white;
+}
+
+thead th {
+  padding: 14px 20px;
+  font-weight: 600;
+  text-align: left;
+}
+
+tbody tr {
+  border-bottom: 1px solid #e0e0e0;
+  transition: background-color 0.25s ease;
+}
+
+tbody tr:hover {
+  background-color: #f0f8ff;
+}
+
+tbody td {
+  padding: 12px 20px;
+  font-size: 15px;
+  vertical-align: middle;
+  color: #444;
+}
+
+/* Responsive Table: Make table scroll horizontally on small screens */
+@media (max-width: 768px) {
+  .event-details {
+    padding: 0 10px;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+/* Alternative Responsive Table (stacked rows on very small screens) */
+@media (max-width: 480px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+  
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  
+  tbody tr {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    background: #fff;
+  }
+  
+  tbody td {
+    border: none;
+    position: relative;
+    padding-left: 50%;
+    text-align: left;
+    font-size: 14px;
+  }
+  
+  tbody td::before {
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    font-weight: 600;
+    color: #114B8C;
+    content: attr(data-label);
+  }
+}
+
+/* Back Button */
+.back-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 10px 22px;
+  background-color: #114B8C;
+  color: white;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #0a3261;
+}

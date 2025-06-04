@@ -1,0 +1,198 @@
+/* -------------------------------- */
+/*        Base / Desktop Styles     */
+/* -------------------------------- */
+
+/* Main content area, offset by sidebar width */
+.main-content {
+  margin-left: 240px; /* 220px sidebar + 20px space */
+  padding: 20px;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  color: #333;
+  box-sizing: border-box;
+}
+
+/* User table styling */
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Table headers & cells */
+.user-table th,
+.user-table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.user-table th {
+  background-color: #3b82f6;
+  color: white;
+  font-weight: 600;
+}
+
+.user-table tbody tr:hover {
+  background-color: #e8f0fe;
+}
+
+/* Delete button */
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Back link */
+.back-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #f59e0b;
+}
+
+/* Modal overlay + modal box */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none; /* shown via JS */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn-confirm {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+/* -------------------------------- */
+/*       RESPONSIVE (Mobile)        */
+/* -------------------------------- */
+@media (max-width: 991px) {
+  /* Remove left margin so sidebar doesn’t push content off-screen */
+  .main-content {
+    margin-left: 0;
+    padding: 15px;
+  }
+
+  /* Turn the table into a “block” so it can scroll if needed */
+  .user-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    /* Optional: add a small shadow on mobile */
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Stack each row as a “card” */
+  .user-table thead {
+    display: none; /* hide the header on mobile */
+  }
+
+  .user-table tr {
+    display: block;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+    padding: 10px;
+  }
+
+  .user-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 10px;
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    font-size: 14px;
+  }
+
+  /* Insert the “label” (from data-label) on the left side */
+  .user-table td::before {
+    content: attr(data-label);
+    flex-shrink: 0;
+    font-weight: bold;
+    color: #3b82f6;
+    width: 40%;       /* label width on mobile */
+    display: inline-block;
+  }
+
+  /* The actual cell value will wrap on the right side */
+  .user-table td {
+    flex-wrap: wrap;
+  }
+
+  /* Remove the bottom border on the last cell of each “card” */
+  .user-table td:last-child {
+    border-bottom: none;
+  }
+
+  /* Modal width adjustment for mobile */
+  .modal {
+    width: 90%;
+    max-width: 90%;
+  }
+
+  /* Stack modal buttons vertically */
+  .modal-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .modal-buttons button {
+    width: 100%;
+  }
+}

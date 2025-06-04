@@ -1,0 +1,36 @@
+<!-- Hamburger Icon -->
+<div class="hamburger" id="hamburger">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<div class="sidebar" id="sidebar">
+  <div class="logo">
+    <img src="/images/college-logo.png" alt="Logo" />
+    <h2>College Event Management System</h2>
+  </div>
+  <ul>
+    <li class="<%= activePage === 'dashboard' ? 'active' : '' %>">
+      <a href="/admin/dashboard">Dashboard</a>
+    </li>
+    <li class="<%= activePage === 'users' ? 'active' : '' %>">
+      <a href="/admin/users">User Management</a>
+    </li>
+    <li class="<%= activePage === 'feedback' ? 'active' : '' %>">
+      <a href="/admin/feedback">Feedback</a>
+    </li>
+    <li>
+      <a href="/logout">Logout</a>
+    </li>
+  </ul>
+</div>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const sidebar = document.getElementById('sidebar');
+
+  hamburger.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+  });
+</script>

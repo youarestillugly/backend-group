@@ -1,0 +1,93 @@
+/* Event Details Container */
+.event-details {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px 24px;
+  background-color: #fafafa;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  color: #333;
+  box-sizing: border-box;
+}
+
+/* Title */
+.event-details h2 {
+  font-size: 1.6rem;
+  color: #2d3436;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* Event Image */
+.event-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+/* Paragraphs */
+.event-details p {
+  margin: 10px 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.event-details p strong {
+  color: #2c3e50;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background-color: #114B8C;
+  color: white;
+  padding: 8px 14px;
+  margin-top: 12px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color 0.25s ease;
+}
+
+.btn:hover {
+  background-color: #114B8C;
+}
+
+.back-btn {
+  background-color: #114B8C;
+}
+
+.back-btn:hover {
+  background-color: #f99b1d;
+}
+
+/* Organizer Actions */
+.organizer-actions {
+  margin-top: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+  .event-details {
+    padding: 16px;
+    margin: 20px auto;
+  }
+
+  .event-details h2 {
+    font-size: 1.3rem;
+  }
+
+  .btn {
+    width: 100%;
+    margin: 10px 0 0 0;
+    text-align: center;
+  }
+
+  .organizer-actions {
+    text-align: center;
+  }
+}

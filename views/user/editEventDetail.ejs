@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Event - <%= event.title %></title>
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/form.css"> <!-- optional, if you have a form.css -->
+  <link rel="stylesheet" href="/css/footer.css">
+
+</head>
+
+<body>
+
+  <%- include('../partials/header') %>
+
+  <section class="event-details">
+    <h2>Edit Event: <%= event.title %></h2>
+    <form action="/events/<%= event.id %>/edit" method="POST">
+  <label>Title:</label>
+  <input type="text" name="title" value="<%= event.title %>" required />
+
+  <label>Date:</label>
+  <input type="date" name="date" value="<%= event.date %>" required />
+
+  <label>Location:</label>
+  <input type="text" name="location" value="<%= event.location %>" required />
+
+  <label>Participants Required:</label>
+  <input type="number" name="participantsRequired" value="<%= event.participantsRequired %>" required />
+
+  <label>Organizer:</label>
+  <input type="text" name="organizer" value="<%= event.organizer %>" required />
+
+  <label>Description:</label>
+  <textarea name="description" required><%= event.description %></textarea>
+
+  <button type="submit">Update Event</button>
+</form>
+
+
+
+  </section>
+
+  <%- include('../partials/footer') %>
+
+</body>
+</html>
