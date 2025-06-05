@@ -102,7 +102,8 @@ exports.postSignup = async (req, res) => {
     });
 
     // Verification email link
-    const verifyUrl = `http://localhost:3000/verify-email?token=${verificationToken}&email=${encodeURIComponent(email)}`;
+  const baseUrl = process.env.BASE_URL;
+const verifyUrl = `${baseUrl}/verify-email?token=${verificationToken}&email=${encodeURIComponent(email)}`;
 
     await transporter.sendMail({
       from: `"Sherubtse Auth" <${process.env.EMAIL_USER}>`,
