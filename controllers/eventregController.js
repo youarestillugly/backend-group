@@ -10,7 +10,6 @@ function getRoleFromSession(req) {
 }
 
 // Show registration form (Only for student role)
-// Show registration form (Only for student role)
 exports.getEventRegistrationForm = async (req, res) => {
   try {
     const role = getRoleFromSession(req);
@@ -32,7 +31,8 @@ exports.getEventRegistrationForm = async (req, res) => {
       activeTab: 'eventreg',
       fullName,
       course,
-      email
+      email,
+      successMessage: null
     });
   } catch (error) {
     console.error('Error loading registration form:', error);
@@ -59,6 +59,7 @@ exports.registerEvent = async (req, res) => {
       eventName
     } = req.body;
 
+    // Save registration
     await EventRegistration.create({
       fullName,
       gender,
@@ -69,7 +70,19 @@ exports.registerEvent = async (req, res) => {
       eventName
     });
 
-    res.redirect('/eventreg'); // You can add flash success message here
+    // Re-fetch events and user details for re-render
+    const events = await Event.findAll({ where: { status: 'approved' } });
+    const user = req.session.user;
+
+    res.render('user/eventreg', {
+      events,
+      role,
+      activeTab: 'eventreg',
+      fullName: `${user.firstName} ${user.lastName}`,
+      course: user.course,
+      email: user.email,
+      successMessage: '✅ You have successfully registered for the event!'
+    });
   } catch (err) {
     console.error('Error during event registration:', err);
     res.status(500).send('Registration Failed');
