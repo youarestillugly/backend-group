@@ -59,14 +59,6 @@ body {
   color: #f99b1d;
 }
 
-/* Hamburger Icon */
-.menu-toggle {
-  display: none;
-  font-size: 2rem;
-  color: white;
-  cursor: pointer;
-}
-
 /* Hero Section */
 .hero {
   display: flex;
@@ -172,41 +164,62 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* Featured Events */
+/* Featured Events Section */
 .featured-events {
-  padding: 2rem 1rem;
+  padding: 3rem 1rem;
   background: #fff;
   text-align: center;
 }
 
 .featured-events h2 {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  font-size: 2rem;
+  color: #114B8C;
 }
 
 .events {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 2rem; /* More space between cards */
   justify-content: center;
+  margin-bottom: 2rem;
 }
 
 .event-card {
   background-color: #f7f7f7;
   padding: 1rem;
-  border-radius: 10px;
-  width: 220px;
+  border-radius: 12px;
+  width: 240px;
   text-align: left;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .event-card img {
   width: 100%;
-  height: 120px;
+  height: 130px;
   object-fit: cover;
   border-radius: 8px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
+.event-card h3 {
+  margin: 0.5rem 0;
+  color: #114B8C;
+  font-size: 1.1rem;
+}
+
+.event-card p {
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+}
+
+/* View All Events Button */
 .featured-events button {
   background-color: #114B8C;
   color: white;
