@@ -32,7 +32,7 @@
             <td><%= fb.email %></td>
             <td><%= fb.message %></td>
             <td>
-              <form action="/admin/feedbacks/<%= fb.id %>/delete" method="POST" class="delete-form">
+              <form action="/admin/feedback/<%= fb.id %>/delete" method="POST" class="delete-form">
                 <!-- Change to type="button" to prevent auto submit -->
                 <button type="button" class="delete-btn">Delete</button>
               </form>
